@@ -2,9 +2,80 @@
 <html>
 <head>
   <title>Movie API Documentation</title>
+
+<style>
+  table {
+    width: 100%;
+    margin: 20px;
+  }
+  table, th, td{
+    text-align: left;
+  }
+</style>
+
+
 </head>
+
+
 <body>
-  <h1>Movie API</h1>
-  <p>This API lets users view information about top 20 movies in JSON format</p>
+  <h1>API Endpoint Documentation</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Request</th>
+      <th>URL</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>GET All Movies</td>
+      <td>/movies</td>
+      <td>Returns a list of all movies.</td>
+    </tr>
+    <tr>
+      <td>GET a Movie By a Title</td>
+      <td>/movies/:title</td>
+      <td>Returns a movie and details about it by a title.</td>
+    </tr>
+    <tr>
+      <td>GET Movies by Type</td>
+      <td>/movies/type/:typeName</td>
+      <td>Returns movies by type.</td>
+    </tr>
+    <tr>
+      <td>POST a New User</td>
+      <td>/users</td>
+      <td>Creates a profile for a new user.</td>
+    </tr>
+    <tr>
+      <td>GET All Users</td>
+      <td>/users</td>
+      <td>Returns a list of all users.</td>
+    </tr>
+    <tr>
+      <td>PUT New Info</td>
+      <td>/users/:username</td>
+      <td>Updates user's info.</td>
+     </tr>
+    <tr>
+      <td>POST Favorite Movies</td>
+      <td>/users/:username/movies/:movieID</td>
+      <td>Adds a movie to a user's favorites.</td>
+    </tr>
+    <tr>
+      <td>DELETE Favorites</td>
+      <td>/users/:username/movies/:movieID</td>
+      <td>Deletes a movie from user's favorites.</td>
+    </tr>
+    <tr>
+      <td>DELETE an Account</td>
+      <td>/users/:username</td>
+      <td>Lets user to delete an account.</td>
+    </tr>
+  </tbody>
+</table>
+
 </body>
 </html>

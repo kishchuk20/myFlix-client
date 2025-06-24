@@ -44,6 +44,37 @@ app.get('/movies', (req, res) => {
   res.json(top20Movies);
 });
 
+app.get('/movies/:title', (req, res) => {
+  res.send(`GET movie by title: ${req.params.title}`);
+});
+
+app.get('/movies/type/:tpeName', (req, res) => {
+  res.send(`GET movies by type: ${req.params.genreName}`);
+});
+
+app.post('/users', (req, res) => {
+  res.send('POST new user');
+});
+
+app.get('/users', (req, res) => {
+  res.send('GET all users');
+});
+
+app.put('/users/:username', (req, res) => {
+  res.send(`PUT update user: ${req.params.username}`);
+});
+
+app.post('/users/:username/movies/:movieID', (req, res) => {
+  res.send(`POST add movie ${req.params.movieID} to user ${req.params.username}`);
+});
+
+app.delete('/users/:username/movies/:movieID', (req, res) => {
+  res.send(`DELETE movie ${req.params.movieID} from user ${req.params.username}`);
+});
+
+app.delete('/users/:username', (req, res) => {
+  res.send(`DELETE user: ${req.params.username}`);
+});
 // Error-handling middleware
 app.use((err, req, res, next) => {
   console.error('Application error:', err);
@@ -54,3 +85,5 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`Server running at http://localhost:${PORT}`);
 });
+
+
