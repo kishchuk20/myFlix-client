@@ -48,8 +48,8 @@ app.get('/movies/:title', (req, res) => {
   res.send(`GET movie by title: ${req.params.title}`);
 });
 
-app.get('/movies/type/:tpeName', (req, res) => {
-  res.send(`GET movies by type: ${req.params.genreName}`);
+app.get('/movies/type/:typeName', (req, res) => {
+  res.send(`GET movies by type: ${req.params.typeName}`);
 });
 
 app.post('/users', (req, res) => {
