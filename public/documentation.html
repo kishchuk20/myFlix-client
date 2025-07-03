@@ -18,64 +18,112 @@
 
 
 <body>
-  <h1>API Endpoint Documentation</h1>
+  <h1>Movie API Documentation</h1>
+  <p>This API allows users to retrieve movie data and manage user accounts and favorite movies.</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>Request</th>
-      <th>URL</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>GET All Movies</td>
-      <td>/movies</td>
-      <td>Returns a list of all movies.</td>
-    </tr>
-    <tr>
-      <td>GET a Movie By a Title</td>
-      <td>/movies/:title</td>
-      <td>Returns a movie and details about it by a title.</td>
-    </tr>
-    <tr>
-      <td>GET Movies by Type</td>
-      <td>/movies/type/:typeName</td>
-      <td>Returns movies by type.</td>
-    </tr>
-    <tr>
-      <td>POST a New User</td>
-      <td>/users</td>
-      <td>Creates a profile for a new user.</td>
-    </tr>
-    <tr>
-      <td>GET All Users</td>
-      <td>/users</td>
-      <td>Returns a list of all users.</td>
-    </tr>
-    <tr>
-      <td>PUT New Info</td>
-      <td>/users/:username</td>
-      <td>Updates user's info.</td>
-     </tr>
-    <tr>
-      <td>POST Favorite Movies</td>
-      <td>/users/:username/movies/:movieID</td>
-      <td>Adds a movie to a user's favorites.</td>
-    </tr>
-    <tr>
-      <td>DELETE Favorites</td>
-      <td>/users/:username/movies/:movieID</td>
-      <td>Deletes a movie from user's favorites.</td>
-    </tr>
-    <tr>
-      <td>DELETE an Account</td>
-      <td>/users/:username</td>
-      <td>Lets user to delete an account.</td>
-    </tr>
-  </tbody>
-</table>
-
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Description</th>
+        <th>Request Body</th>
+        <th>Response Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GET</td>
+        <td>/</td>
+        <td>Welcome message</td>
+        <td>None</td>
+        <td><pre>"Welcome to my Movie API!"</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies</td>
+        <td>Returns all movies</td>
+        <td>None</td>
+        <td><pre>[{ "Title": "...", "Year": "...", ... }]</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies/:title</td>
+        <td>Returns one movie by title</td>
+        <td>None</td>
+        <td><pre>{ "Title": "...", "Genre": { "Name": "..." }, ... }</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies/genre/:genreName</td>
+        <td>Returns all movies matching genre</td>
+        <td>None</td>
+        <td><pre>[{ "Title": "...", "Genre": { "Name": "..." }, ... }]</pre></td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users</td>
+        <td>Create a new user</td>
+        <td>
+          <pre>{
+  "Username": "...",
+  "Password": "...",
+  "Email": "...",
+  "Birthday": "1111-01-01"
+}</pre>
+        </td>
+        <td><pre>{ "_id": "...", "Username": "...", ... }</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/users</td>
+        <td>Returns all users</td>
+        <td>None</td>
+        <td><pre>[{ "Username": "...", "Email": "...", ... }]</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/users/:Username</td>
+        <td>Returns one user by username</td>
+        <td>None</td>
+        <td><pre>{ "Username": "...", "FavoriteMovies": [] }</pre></td>
+      </tr>
+      <tr>
+        <td>PUT</td>
+        <td>/users/:Username</td>
+        <td>Updates a user's info</td>
+        <td>
+          <pre>{
+  "Username": "...",
+  "Password": "newpass",
+  "Email": "...",
+  "Birthday": "2222-02-02"
+}</pre>
+        </td>
+        <td><pre>{ "Username": "...", "Email": "...", ... }</pre></td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users/:Username/movies/:MovieID</td>
+        <td>Adds movie to user's favorites</td>
+        <td>None</td>
+        <td><pre>{ "Username": "...", "FavoriteMovies": ["65bd...", "abc..."] }</pre></td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/users/:Username/movies/:MovieID</td>
+        <td>Removes movie from user's favorites</td>
+        <td>None</td>
+        <td><pre>{ "Username": "...", "FavoriteMovies": [] }</pre></td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/users/:Username</td>
+        <td>Deletes a user account</td>
+        <td>None</td>
+        <td><pre>"user was deleted."</pre></td>
+      </tr>
+    </tbody>
+  </table>
 </body>
 </html>
