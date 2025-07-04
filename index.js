@@ -16,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 
 const passport = require('passport');
 require('./passport');
+const cors = require('cors');
+app.use(cors());
 let auth = require('./auth')(app);
 
 // Use Morgan to log requests to the terminal
