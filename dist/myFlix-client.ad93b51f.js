@@ -16115,24 +16115,24 @@ const MainView = ()=>{
         {
             id: 1,
             title: 'Inception',
-            description: "\u2026",
-            image: "\u2026",
+            description: 'A skilled thief who steals corporate secrets through use of dream-sharing technology is given the inverse task of planting an idea into the mind of a CEO.',
+            image: 'https://m.media-amazon.com/images/I/81p+xe8cbnL._AC_SL1500_.jpg',
             genre: "Sci\u2011Fi",
             director: 'Christopher Nolan'
         },
         {
             id: 2,
             title: 'The Matrix',
-            description: "\u2026",
-            image: "\u2026",
+            description: 'A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.',
+            image: 'https://m.media-amazon.com/images/I/51vpnbwFHrL._AC_SY679_.jpg',
             genre: 'Action',
             director: 'Wachowski Sisters'
         },
         {
             id: 3,
             title: 'Interstellar',
-            description: "\u2026",
-            image: "\u2026",
+            description: 'A team of explorers travel through a wormhole in space in an attempt to ensure humanity\'s survival.',
+            image: 'https://upload.wikimedia.org/wikipedia/en/b/bc/Interstellar_film_poster.jpg',
             genre: 'Adventure',
             director: 'Christopher Nolan'
         }
@@ -16142,7 +16142,7 @@ const MainView = ()=>{
         onBackClick: ()=>setSelectedMovie(null)
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 15,
+        lineNumber: 36,
         columnNumber: 5
     }, undefined) : /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         children: movies.map((m)=>/*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)((0, _movieCardJsx.MovieCard), {
@@ -16150,12 +16150,12 @@ const MainView = ()=>{
                 onClick: ()=>setSelectedMovie(m)
             }, m.id, false, {
                 fileName: "src/components/main-view/main-view.jsx",
-                lineNumber: 19,
+                lineNumber: 40,
                 columnNumber: 9
             }, undefined))
     }, void 0, false, {
         fileName: "src/components/main-view/main-view.jsx",
-        lineNumber: 17,
+        lineNumber: 38,
         columnNumber: 5
     }, undefined);
 };
