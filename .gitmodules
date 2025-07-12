@@ -1,0 +1,3 @@
+[submodule "movie_api"]
+	path = movie_api
+	url = https://github.com/kishchuk20/movie_api
