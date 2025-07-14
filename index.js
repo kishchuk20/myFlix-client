@@ -47,8 +47,8 @@ app.get('/', (req, res) => {
   res.send('Welcome to my Movie API!');
 });
 
-app.get('/movies', passport.authenticate('jwt', { session: false }), async (req, res) => {
-  await Movies.find()
+app.get('/movies', async (req, res) => {
+    Movies.find()
     .then((movies) => res.status(200).json(movies))
     .catch((error) => res.status(500).send('Error: ' + error));
 });
