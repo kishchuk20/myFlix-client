@@ -18491,7 +18491,7 @@ parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const MovieCard = ({ movie, onClick })=>{
-    console.log('Movie Data in Card:', movie);
+    if (!movie) return null;
     const imageUrl = movie.ImagePath || 'https://placekitten.com/200/300';
     const movieTitle = movie.Title || 'Movie Title Not Available';
     const movieGenre = movie.Genre?.Name || 'Genre Not Available';
