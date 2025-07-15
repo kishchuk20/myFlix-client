@@ -187,8 +187,6 @@ app.use((err, req, res, next) => {
   res.status(500).send('Application error: ' + err.message);
 });
 
-const path = require('path');
-
 // Serve React frontend static files
 app.use(express.static(path.join(__dirname, 'public')));
 
