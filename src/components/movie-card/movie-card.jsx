@@ -1,9 +1,15 @@
+export const MovieCard = ({ movie, onClick }) => {
+  console.log('Movie Data in Card:', movie);  // Debugging log
 
-export const MovieCard = ({ movie, onClick }) => (
-  <div
-    onClick={onClick}
-    style={{ cursor: 'pointer', border: '1px solid #ccc', padding: '8px', margin: '8px' }}
-  >
-    <h3>{movie.title}</h3>
-  </div>
-);
+  const imageUrl = movie.image || 'https://placekitten.com/200/300';
+  const movieTitle = movie.title || 'Movie Title Not Available';
+  const movieGenre = movie.genre || 'Genre Not Available';
+
+  return (
+    <div className="movie-card" onClick={onClick}>
+      <img src={imageUrl} alt={movieTitle} style={{ width: '200px' }} />
+      <h3>{movieTitle}</h3>
+      <p>{movieGenre}</p>
+    </div>
+  );
+};
