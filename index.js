@@ -20,21 +20,18 @@ const PORT = process.env.PORT || 8080;
 mongoose.connect(process.env.CONNECTION_URI);
 
 
-// Middleware
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
-
-
-let auth = require('./auth')(app);
 app.use(morgan('dev'));
-app.use(express.static(path.join(__dirname, 'public')));
 
-// Routes
+// Serve images from the 'public/images' folder
+app.use('/images', express.static(path.join(__dirname, 'public/images')));
+
+// Then your routes
 app.get('/', (req, res) => {
   res.send('Welcome to my Movie API!');
 });
-
 app.get('/movies', async (req, res) => {
   Movies.find()
     .then((movies) => res.status(200).json(movies))
@@ -194,6 +191,3 @@ app.use((err, req, res, next) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log('Listening on Port ' + PORT);
 });
-
-
-app.use('/images', express.static('public/images'));
