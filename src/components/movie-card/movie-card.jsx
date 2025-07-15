@@ -13,3 +13,17 @@ export const MovieCard = ({ movie, onClick }) => {
     </div>
   );
 };
+
+import PropTypes from 'prop-types';
+
+MovieCard.propTypes = {
+  movie: PropTypes.shape({
+    _id: PropTypes.string,
+    Title: PropTypes.string,
+    ImagePath: PropTypes.string,
+    Genre: PropTypes.shape({
+      Name: PropTypes.string
+    })
+  }).isRequired,
+  onClick: PropTypes.func.isRequired
+};
