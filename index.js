@@ -17,11 +17,8 @@ const { check, validationResult } = require('express-validator');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-// MongoDB connection
-mongoose.connect(process.env.CONNECTION_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-});
+mongoose.connect(process.env.CONNECTION_URI);
+
 
 // Middleware
 app.use(express.json());
@@ -49,10 +46,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/movies', async (req, res) => {
-    Movies.find()
+  Movies.find()
     .then((movies) => res.status(200).json(movies))
     .catch((error) => res.status(500).send('Error: ' + error));
 });
+
+
+
 
 app.get('/movies/:title', async (req, res) => {
   try {
@@ -72,6 +72,26 @@ app.get('/movies/genre/:genreName', async (req, res) => {
     res.status(500).send('Error: ' + error);
   }
 });
+
+app.post('/movies', async (req, res) => {
+  const { Title, Description, ImagePath, Genre, Director } = req.body;
+
+  const newMovie = new Movies({
+    Title,
+    Description,
+    ImagePath,
+    Genre,
+    Director
+  });
+
+  try {
+    const savedMovie = await newMovie.save();
+    res.status(201).json(savedMovie);
+  } catch (error) {
+    res.status(500).send('Error: ' + error.message);
+  }
+});
+
 
 app.post('/users', [
   check('Username', 'Username is required').isLength({ min: 5 }),
