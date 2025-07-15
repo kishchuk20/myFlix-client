@@ -8,14 +8,22 @@ export const MainView = () => {
 
   // Fetch movies from the API
   useEffect(() => {
-    fetch('http://localhost:1234/movies')
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('Fetched Movies:', data);  // Log the API response
-        setMovies(data);
-      })
-      .catch((error) => console.error('Error fetching movies:', error));
-  }, []);
+  fetch('https://ki-movies-flix-dfd109e95cbd.herokuapp.com/movies')
+
+    .then((response) => {
+      console.log('Response status:', response.status);
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      return response.json();
+    })
+    .then((data) => {
+      console.log('Fetched Movies:', data);
+      setMovies(data);
+    })
+    .catch((error) => console.error('Error fetching movies:', error));
+}, []);
+
 
   // Handle movie click
   const handleMovieClick = (movie) => {
@@ -31,7 +39,7 @@ export const MainView = () => {
       {!selectedMovie ? (
         <div className="movie-list">
           {movies.map((movie) => (
-            <MovieCard key={movie.id} movie={movie} onClick={() => handleMovieClick(movie)} />
+            <MovieCard key={movie._id} movie={movie} onClick={() => handleMovieClick(movie)} />
           ))}
         </div>
       ) : (

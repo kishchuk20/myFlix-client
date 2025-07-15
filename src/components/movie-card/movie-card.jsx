@@ -1,9 +1,9 @@
 export const MovieCard = ({ movie, onClick }) => {
-  console.log('Movie Data in Card:', movie);  // Debugging log
+  if (!movie) return null; 
 
-  const imageUrl = movie.image || 'https://placekitten.com/200/300';
-  const movieTitle = movie.title || 'Movie Title Not Available';
-  const movieGenre = movie.genre || 'Genre Not Available';
+  const imageUrl = movie.ImagePath || 'https://placekitten.com/200/300';
+  const movieTitle = movie.Title || 'Movie Title Not Available';
+  const movieGenre = movie.Genre?.Name || 'Genre Not Available';
 
   return (
     <div className="movie-card" onClick={onClick}>
@@ -12,18 +12,4 @@ export const MovieCard = ({ movie, onClick }) => {
       <p>{movieGenre}</p>
     </div>
   );
-};
-
-import PropTypes from 'prop-types';
-
-MovieCard.propTypes = {
-  movie: PropTypes.shape({
-    _id: PropTypes.string,
-    Title: PropTypes.string,
-    ImagePath: PropTypes.string,
-    Genre: PropTypes.shape({
-      Name: PropTypes.string
-    })
-  }).isRequired,
-  onClick: PropTypes.func.isRequired
 };
