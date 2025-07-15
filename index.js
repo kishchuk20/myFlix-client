@@ -23,8 +23,6 @@ mongoose.connect(process.env.CONNECTION_URI);
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const cors = require('cors');
 app.use(cors());
 
 
