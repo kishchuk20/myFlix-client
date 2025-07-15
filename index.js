@@ -194,3 +194,6 @@ app.use((err, req, res, next) => {
 app.listen(PORT, '0.0.0.0', () => {
   console.log('Listening on Port ' + PORT);
 });
+
+
+app.use('/images', express.static('public/images'));
