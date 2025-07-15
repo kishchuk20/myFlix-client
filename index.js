@@ -187,6 +187,17 @@ app.use((err, req, res, next) => {
   res.status(500).send('Application error: ' + err.message);
 });
 
+const path = require('path');
+
+// Serve React frontend static files
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Handle React routing, return all requests to React app
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
+
 // Start server
 app.listen(PORT, '0.0.0.0', () => {
   console.log('Listening on Port ' + PORT);
