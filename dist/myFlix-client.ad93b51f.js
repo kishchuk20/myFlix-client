@@ -18492,9 +18492,9 @@ parcelHelpers.export(exports, "MovieCard", ()=>MovieCard);
 var _jsxDevRuntime = require("react/jsx-dev-runtime");
 const MovieCard = ({ movie, onClick })=>{
     if (!movie) return null;
+    console.log('MovieCard image URL:', movie.ImagePath);
     const imageUrl = movie.ImagePath || 'https://placekitten.com/200/300';
     const movieTitle = movie.Title || 'Movie Title Not Available';
-    const movieGenre = movie.Genre?.Name || 'Genre Not Available';
     return /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("div", {
         className: "movie-card",
         onClick: onClick,
@@ -18507,18 +18507,11 @@ const MovieCard = ({ movie, onClick })=>{
                 }
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 10,
+                lineNumber: 11,
                 columnNumber: 7
             }, undefined),
             /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("h3", {
                 children: movieTitle
-            }, void 0, false, {
-                fileName: "src/components/movie-card/movie-card.jsx",
-                lineNumber: 11,
-                columnNumber: 7
-            }, undefined),
-            /*#__PURE__*/ (0, _jsxDevRuntime.jsxDEV)("p", {
-                children: movieGenre
             }, void 0, false, {
                 fileName: "src/components/movie-card/movie-card.jsx",
                 lineNumber: 12,
@@ -18527,7 +18520,7 @@ const MovieCard = ({ movie, onClick })=>{
         ]
     }, void 0, true, {
         fileName: "src/components/movie-card/movie-card.jsx",
-        lineNumber: 9,
+        lineNumber: 10,
         columnNumber: 5
     }, undefined);
 };
