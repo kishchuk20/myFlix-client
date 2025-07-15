@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 const Models = require('./models.js');
 
@@ -26,7 +27,7 @@ mongoose.connect(process.env.CONNECTION_URI, {
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-let allowedOrigins = ['http://localhost:8080', 'http://testsite.com'];
+let allowedOrigins = ['http://localhost:1234', 'http://localhost:8080', 'http://testsite.com'];
 app.use(cors({
   origin: (origin, callback) => {
     if (!origin) return callback(null, true);
