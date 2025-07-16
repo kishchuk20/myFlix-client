@@ -191,7 +191,7 @@ app.use((err, req, res, next) => {
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Handle React routing, return all requests to React app
-app.get('*', (req, res) => {
+app.get('/{*splat}', (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
