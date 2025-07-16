@@ -16115,7 +16115,7 @@ const MainView = ()=>{
     const [selectedMovie, setSelectedMovie] = (0, _react.useState)(null);
     // Fetch movies from the API
     (0, _react.useEffect)(()=>{
-        fetch('https://ki-movies-flix-dfd109e95cbd.herokuapp.com/movies').then((response)=>{
+        fetch('http://localhost:8080/movies').then((response)=>{
             console.log('Response status:', response.status);
             if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
             return response.json();
