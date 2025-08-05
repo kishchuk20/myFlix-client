@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Movie API Documentation</title>
+
+<style>
+  table {
+    width: 100%;
+    margin: 20px;
+  }
+  table, th, td{
+    text-align: left;
+  }
+</style>
+
+
+</head>
+
+
+<body>
+  <h1>Movie API Documentation</h1>
+  <p>This API allows users to retrieve movie data and manage user accounts and favorite movies.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Method</th>
+        <th>Endpoint</th>
+        <th>Description</th>
+        <th>Request Body</th>
+        <th>Response Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>GET</td>
+        <td>/</td>
+        <td>Welcome message</td>
+        <td>None</td>
+        <td><pre>"Welcome to my Movie API!"</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies</td>
+        <td>Returns all movies</td>
+        <td>None</td>
+        <td><pre>[{ "Title": "...", "Year": "...", ... }]</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies/:title</td>
+        <td>Returns one movie by title</td>
+        <td>None</td>
+        <td><pre>{ "Title": "...", "Genre": { "Name": "..." }, ... }</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/movies/genre/:genreName</td>
+        <td>Returns all movies matching genre</td>
+        <td>None</td>
+        <td><pre>[{ "Title": "...", "Genre": { "Name": "..." }, ... }]</pre></td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users</td>
+        <td>Create a new user</td>
+        <td>
+          <pre>{
+  "Username": "...",
+  "Password": "...",
+  "Email": "...",
+  "Birthday": "1111-01-01"
+}</pre>
+        </td>
+        <td><pre>{ "_id": "...", "Username": "...", ... }</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/users</td>
+        <td>Returns all users</td>
+        <td>None</td>
+        <td><pre>[{ "Username": "...", "Email": "...", ... }]</pre></td>
+      </tr>
+      <tr>
+        <td>GET</td>
+        <td>/users/:Username</td>
+        <td>Returns one user by username</td>
+        <td>None</td>
+        <td><pre>{ "Username": "...", "FavoriteMovies": [] }</pre></td>
+      </tr>
+      <tr>
+        <td>PUT</td>
+        <td>/users/:Username</td>
+        <td>Updates a user's info</td>
+        <td>
+          <pre>{
+  "Username": "...",
+  "Password": "newpass",
+  "Email": "...",
+  "Birthday": "2222-02-02"
+}</pre>
+        </td>
+        <td><pre>{ "Username": "...", "Email": "...", ... }</pre></td>
+      </tr>
+      <tr>
+        <td>POST</td>
+        <td>/users/:Username/movies/:MovieID</td>
+        <td>Adds movie to user's favorites</td>
+        <td>None</td>
+        <td><pre>{ "Username": "...", "FavoriteMovies": ["65bd...", "abc..."] }</pre></td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/users/:Username/movies/:MovieID</td>
+        <td>Removes movie from user's favorites</td>
+        <td>None</td>
+        <td><pre>{ "Username": "...", "FavoriteMovies": [] }</pre></td>
+      </tr>
+      <tr>
+        <td>DELETE</td>
+        <td>/users/:Username</td>
+        <td>Deletes a user account</td>
+        <td>None</td>
+        <td><pre>"user was deleted."</pre></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
