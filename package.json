@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "myflix-client",
   "version": "1.0.0",
   "description": "",
@@ -17,43 +16,5 @@
   "devDependencies": {
     "@babel/preset-react": "^7.27.1",
     "@parcel/transformer-sass": "^2.15.4"
-=======
-  "name": "movie_api",
-  "version": "1.0.0",
-  "description": "A movie API project",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kishchuk20/movie_api.git"
-  },
-  "keywords": [
-    "API",
-    "Movie"
-  ],
-  "author": "Kristina Ishchuk",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/kishchuk20/movie_api/issues"
-  },
-  "homepage": "https://github.com/kishchuk20/movie_api#readme",
-  "dependencies": {
-    "bcrypt": "^6.0.0",
-    "body-parser": "^2.2.0",
-    "cors": "^2.8.5",
-    "dotenv": "^17.2.0",
-    "express": "^5.1.0",
-    "express-validator": "^7.2.1",
-    "jsonwebtoken": "^9.0.2",
-    "mongodb": "^6.17.0",
-    "mongoose": "^8.16.3",
-    "morgan": "^1.10.0",
-    "passport": "^0.7.0",
-    "passport-jwt": "^4.0.1",
-    "passport-local": "^1.0.0"
->>>>>>> 27fc3717b5c85cddbca9119d3cf9f95d6690366f
   }
 }
