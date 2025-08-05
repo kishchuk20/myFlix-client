@@ -1,51 +1,46 @@
 import React, { useState, useEffect } from 'react';
 import { MovieCard } from '../movie-card/movie-card';  // Import MovieCard
 import { MovieView } from '../movie-view/movie-view';  // Import MovieView
+import { LoginView } from "../login-view/login-view";
+
 
 export const MainView = () => {
+  const [user, setUser] = useState(null);
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  // Fetch movies from the API
   useEffect(() => {
-  fetch('https://ki-movies-flix-dfd109e95cbd.herokuapp.com/movies')
+    if (!user) return; // don't fetch movies if no user
 
-    .then((response) => {
-      console.log('Response status:', response.status);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      return response.json();
-    })
-    .then((data) => {
-      console.log('Fetched Movies:', data);
-      setMovies(data);
-    })
-    .catch((error) => console.error('Error fetching movies:', error));
-}, []);
+    fetch('https://ki-movies-flix-dfd109e95cbd.herokuapp.com/movies')
+      .then((response) => {
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+        return response.json();
+      })
+      .then((data) => setMovies(data))
+      .catch((error) => console.error('Error fetching movies:', error));
+  }, [user]);
 
+  if (!user) {
+    return <LoginView onLoggedIn={(user) => setUser(user)} />;
+  }
 
-  // Handle movie click
-  const handleMovieClick = (movie) => {
-    setSelectedMovie(movie);
-  };
-
-  const handleBackClick = () => {
-    setSelectedMovie(null);
-  };
+  // Movie click handlers unchanged...
 
   return (
     <div>
       {!selectedMovie ? (
         <div className="movie-list">
           {movies.map((movie) => (
-            <MovieCard key={movie._id} movie={movie} onClick={() => handleMovieClick(movie)} />
+            <MovieCard key={movie._id} movie={movie} onClick={() => setSelectedMovie(movie)} />
           ))}
         </div>
       ) : (
-        <MovieView movie={selectedMovie} onBackClick={handleBackClick} />
+        <MovieView movie={selectedMovie} onBackClick={() => setSelectedMovie(null)} />
       )}
+      <button onClick={() => setUser(null)}>Logout</button>
     </div>
   );
 };
+
 
